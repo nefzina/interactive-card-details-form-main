@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+}
+
+.background img {
+    height: 100vh;
+    max-height: 900px;
+    max-width: 483px;
+    width: 33.5%;
+    float: left;
+}
+
+.formBox {
+    max-width: calc(1440px - 483px);
+    width: 66.5%;
+    height: 100vh;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+form, .confirmation {margin-left: 15%;}
+label { 
+    text-transform: uppercase; 
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: hsl(278, 68%, 11%);
+}
+
+input {
+    width: 380px;
+    height: 45px;
+    border-radius: 8px;
+    color: hsl(278, 68%, 11%);
+    font-size: 18px;
+    padding-left: 15px;
+    border: 1px solid hsl(270, 3%, 87%);
+    margin: 5px 0 8px 0;
+    /*border-image: linear-gradient(hsl(270, 3%, 87%), hsl(270, 3%, 87%));*/
+}
+
+.dateAndCode {
+    display: flex;
+    width: 380px;
+    justify-content: space-between;
+}
+
+::placeholder { color: hsl(270, 3%, 87%);}
+
+#month, #year { width: 80px; margin-right: 8px;}
+#cvc {width: 190px;}
+#confirm, #continue { 
+    background-color: hsl(278, 68%, 11%); 
+    padding: 0;
+    margin-top: 14px;
+    height: 55px;
+    color: hsl(270, 3%, 87%);
+    transition: .2s linear;
+}
+
+#confirm:hover, #continue:hover { 
+    letter-spacing: 1.5px;
+    /*background-color: hsl(278, 92%, 31%);*/
+    background: url(./images/bg-card-front.png) no-repeat;
+    background-position: top 3px;
+}
+
+#fullName:focus, #cardNumber:focus, #month:focus, #year:focus, #cvc:focus {
+    outline: none;  
+    border: solid 1px transparent;  /* transparent so the background image can be seen through the border*/
+    border-radius: 8px;
+    background-image:  linear-gradient(white, white), radial-gradient(circle at top left, hsl(249, 99%, 64%), hsl(278, 68%, 11%), hsl(278, 94%, 30%));
+    background-origin: border-box;
+    background-clip: padding-box, border-box; /* white background stops at padding box and the gradient colors covers all the surface (border box), then it is visible only between padding border and box border*/
+}
+
+.layer1, #frontImg, #backImg { position: relative;}
+.cards { 
+    position: absolute;
+    /*margin-left: 11vw;*/
+    display: flex;
+    max-width: 705px;
+    width: 49%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.cards p { color: hsl(0, 0%, 100%); font-size: 14px; letter-spacing: 2px;}
+.frontCard { 
+    width: 447px;
+    height: 245px;
+    background: url(./images/bg-card-front.png) no-repeat;
+    margin: 0 95px 38px 0;
+}
+#eglogo { padding: 29px 0 0 32px;}
+#egNumber { font-size: 28px; padding: 60px 0 25px 32px; letter-spacing: 3.3px;}
+#egName { padding: 0 0 26px 32px; text-transform: uppercase; float: left;}
+#egDate { float: right; padding-right: 32px;}
+
+.backCard { 
+    width: 447px;
+    height: 245px;
+    background: url(./images/bg-card-back.png) no-repeat;
+}
+
+.backCard p { padding: 114px 0 0 350px;}
+ 
+.error {
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.confirmation {
+    display: none;
+    flex-direction: column;
+    max-width: calc(1440px - 483px);
+    width: 380px;
+    height: 310px;
+    float: left;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.confirmation h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 28px;
+    margin-top: 36px;
+    margin-bottom: 15px;
+}
+
+.confirmation p {
+    color: hsl(279, 6%, 55%);
+    font-size: 18px;
+    margin-bottom: 33px;
+}
