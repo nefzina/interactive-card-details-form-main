@@ -125,6 +125,5 @@ for(let i of elementsId){ validateData.call(i)}
 
 const completeState = document.getElementsByClassName("confirmation")[0]
 completeState.addEventListener("submit", function(){
-    completeState.style.display = "none"
-    inputForm.style.display = "block"
+    window.location.reload()
 })
