@@ -124,9 +124,7 @@ for(let i of elementsId){ validateData.call(i)}
 })
 
 const completeState = document.getElementsByClassName("confirmation")[0]
-console.log(completeState)
 completeState.addEventListener("submit", function(){
-    
     completeState.style.display = "none"
     inputForm.style.display = "block"
 })

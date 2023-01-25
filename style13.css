@@ -78,7 +78,7 @@ input {
     background-clip: padding-box, border-box; /* white background stops at padding box and the gradient colors covers all the surface (border box), then it is visible only between padding border and box border*/
 }
 
-.layer1, #frontImg, #backImg { position: relative;}
+.layer1 { position: relative;}
 .cards { 
     position: absolute;
     /*margin-left: 11vw;*/
@@ -89,6 +89,7 @@ input {
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .cards p { color: hsl(0, 0%, 100%); font-size: 14px; letter-spacing: 2px;}
@@ -96,12 +97,13 @@ input {
     width: 447px;
     height: 245px;
     background: url(./images/bg-card-front.png) no-repeat;
-    margin: 0 95px 38px 0;
+    margin: 0 6.5vw 38px 0;  /*TO OPTIMIZE: responsive when width < 1024px*/
+    /*align-self: center;*/
 }
-#eglogo { padding: 29px 0 0 32px;}
-#egNumber { font-size: 28px; padding: 60px 0 25px 32px; letter-spacing: 3.3px;}
-#egName { padding: 0 0 26px 32px; text-transform: uppercase; float: left;}
-#egDate { float: right; padding-right: 32px;}
+#eglogo { margin: 29px 0 0 32px;}
+#egNumber { font-size: 28px; margin: 60px 0 25px 32px; letter-spacing: 3.3px;}
+#egName { margin: 0 0 26px 32px; text-transform: uppercase; float: left;}
+#egDate { float: right; margin-right: 32px;}
 
 .backCard { 
     width: 447px;
@@ -109,7 +111,7 @@ input {
     background: url(./images/bg-card-back.png) no-repeat;
 }
 
-.backCard p { padding: 114px 0 0 350px;}
+#egCode { margin: 114px 0 0 350px;}
  
 .error {
     font-size: 12px;
@@ -139,4 +141,53 @@ input {
     color: hsl(279, 6%, 55%);
     font-size: 18px;
     margin-bottom: 33px;
+}
+
+@media screen and (max-width: 425px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .background img {
+        width: 100%;
+        height: 64%;
+        background-size: cover;
+        float: none;
+        display: block;
+    }
+    .formBox {
+        width: 100%;
+        float: none;
+        /*margin-top: 122px;*/
+    }
+    /*#form { margin-top: 50px;}*/
+    .cards { 
+        top: 0;
+        left: calc(50% - (343px/2));
+        width: 343px;
+        height: 251px;
+        margin: 31px auto 0 auto;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    input, .dateAndCode {
+        width: 330px; margin-left: auto; margin-right: auto;
+    }
+    #month, #year { width: 71px;}
+    #cvc {width: 164px;}
+
+    form, .confirmation {margin-left: auto; margin-right: auto; margin-top: 93px;}
+    .frontCard, .backCard { width: 285px; height: 156px; background-size: contain;}
+    .frontCard { margin: 0; position: absolute; top: 95px; left: 0;}
+    .backCard { margin-top: 0;}
+    #eglogo { width: 55px; margin: 17px 0 0 19px; padding: 0;}
+    #egNumber { font-size: 18px; margin: 34px 0 17px 19px; letter-spacing: 2px;}
+    #egName { margin-left: 19px;}
+    #egDate { margin-right: 21px;}
+    .cards p { font-size: 10px; letter-spacing: 1px;}
+    #egCode { margin: 70px 0 0 225px;}
+    #confirm { margin-bottom: 45px; margin-top: 5px;}
+    .confirmation { height: 374px;}
 }
