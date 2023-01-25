@@ -5,20 +5,17 @@
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
 }
-
+.layer1 { position: relative; display: flex;}
 .background img {
     height: 100vh;
-    max-height: 900px;
-    max-width: 483px;
-    width: 33.5%;
-    float: left;
+    min-width: 483px;
+    background-size: contain;
 }
 
 .formBox {
     max-width: calc(1440px - 483px);
     width: 66.5%;
     height: 100vh;
-    float: left;
     display: flex;
     align-items: center;
     justify-content: center; 
@@ -40,7 +37,6 @@ input {
     padding-left: 15px;
     border: 1px solid hsl(270, 3%, 87%);
     margin: 5px 0 8px 0;
-    /*border-image: linear-gradient(hsl(270, 3%, 87%), hsl(270, 3%, 87%));*/
 }
 
 .dateAndCode {
@@ -64,7 +60,6 @@ input {
 
 #confirm:hover, #continue:hover { 
     letter-spacing: 1.5px;
-    /*background-color: hsl(278, 92%, 31%);*/
     background: url(./images/bg-card-front.png) no-repeat;
     background-position: top 3px;
 }
@@ -77,11 +72,8 @@ input {
     background-origin: border-box;
     background-clip: padding-box, border-box; /* white background stops at padding box and the gradient colors covers all the surface (border box), then it is visible only between padding border and box border*/
 }
-
-.layer1 { position: relative;}
 .cards { 
     position: absolute;
-    /*margin-left: 11vw;*/
     display: flex;
     max-width: 705px;
     width: 49%;
@@ -98,7 +90,6 @@ input {
     height: 245px;
     background: url(./images/bg-card-front.png) no-repeat;
     margin: 0 6.5vw 38px 0;  /*TO OPTIMIZE: responsive when width < 1024px*/
-    /*align-self: center;*/
 }
 #eglogo { margin: 29px 0 0 32px;}
 #egNumber { font-size: 28px; margin: 60px 0 25px 32px; letter-spacing: 3.3px;}
@@ -124,7 +115,6 @@ input {
     max-width: calc(1440px - 483px);
     width: 380px;
     height: 310px;
-    float: left;
     align-items: center;
     justify-content: flex-start; 
 }
@@ -149,17 +139,16 @@ input {
         margin: 0;
         box-sizing: border-box;
     }
+    .layer1 { display: block;}
     .background img {
         width: 100%;
-        height: 64%;
-        background-size: cover;
-        float: none;
+        height: 64%; /* 240px corresponds to 64% */
+        min-width: 375px;
         display: block;
     }
     .formBox {
         width: 100%;
-        float: none;
-        /*margin-top: 122px;*/
+        flex-wrap: nowrap;
     }
     /*#form { margin-top: 50px;}*/
     .cards { 
@@ -178,7 +167,7 @@ input {
     #month, #year { width: 71px;}
     #cvc {width: 164px;}
 
-    form, .confirmation {margin-left: auto; margin-right: auto; margin-top: 93px;}
+    #form, .confirmation { margin: 93px auto 0 auto;}
     .frontCard, .backCard { width: 285px; height: 156px; background-size: contain;}
     .frontCard { margin: 0; position: absolute; top: 95px; left: 0;}
     .backCard { margin-top: 0;}
