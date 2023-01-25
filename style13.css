@@ -149,8 +149,8 @@ input {
     .formBox {
         width: 100%;
         flex-wrap: nowrap;
+        height: 465px;
     }
-    /*#form { margin-top: 50px;}*/
     .cards { 
         top: 0;
         left: calc(50% - (343px/2));
