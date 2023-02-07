@@ -10,6 +10,7 @@
     height: 100vh;
     min-width: 483px;
     background-size: contain;
+    display: block;
 }
 
 .formBox {
@@ -133,7 +134,7 @@ input {
     margin-bottom: 33px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 990px) {
     * {
         padding: 0;
         margin: 0;
@@ -145,6 +146,7 @@ input {
         height: 64%; /* 240px corresponds to 64% */
         min-width: 375px;
         display: block;
+        max-height: 300px;
     }
     .formBox {
         width: 100%;
@@ -166,7 +168,6 @@ input {
     }
     #month, #year { width: 71px;}
     #cvc {width: 164px;}
-
     #form, .confirmation { margin: 93px auto 0 auto;}
     .frontCard, .backCard { width: 285px; height: 156px; background-size: contain;}
     .frontCard { margin: 0; position: absolute; top: 95px; left: 0;}

@@ -48,7 +48,10 @@ code.addEventListener("blur", validateData);
 
 function validateData() {
     const value = this.value.trim()
-    let state = true
+    let yr = new Date()
+    const mois = new Date()
+    yr = yr.getFullYear().toString().slice(2,4)
+
     if (this.id === "fullName") {
         if (this.value.trim() === "") {errorstate(err1, Cardholder)}
         else if (this.value.match(/\d+/g)) {errorstate("Wrong format, letters only", Cardholder)}
@@ -71,15 +74,22 @@ function validateData() {
         if(this.value === ""){ errorstate(err1, month);}
         else if (this.value > 12 || this.value < 1) {errorstate(err3, month)}
         else if (this.value.match(/[^\d]/g)) {errorstate(err2, month)}
+        else if (year.value !== "") {
+            if ((year.value === yr && this.value < mois.getMonth()+1)) {errorstate(err3, month), errorstate(err3, year)}
+            else if (year.classList.contains("fail")) { successState(month), validateData.call(year)}
+            else { successState(month), successState(year)}
+        }
         else {successState(month)}
     }
     if (this.id === "year") {
-        let yr = new Date()
-        const mois = new Date()
-        yr = yr.getFullYear().toString().slice(2,4)
         if(this.value === ""){ errorstate(err1, year);}
-        else if (this.value < yr || (this.value === yr && month.value < mois.getMonth())) {errorstate(err3, year)}
         else if (this.value.match(/[\D]/g)) {errorstate(err2, year)}
+        else if (this.value < yr) {errorstate(err3, year)}
+        else if (month.value !== "") {
+            if ((this.value === yr && month.value < mois.getMonth()+1)) {errorstate(err3, year), errorstate(err3, month)}
+            else if (month.classList.contains("fail")) { successState(year), validateData.call(month)}
+            else { successState(month), successState(year)}
+        }
         else {successState(year)}
     }
     if (this.id === "cvc") {
